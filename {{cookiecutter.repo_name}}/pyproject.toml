@@ -1,0 +1,16 @@
+# use PyCharm default line length of 120
+
+[tool.autopep8]
+in_place = true
+recursive = true
+exclude = "./node_modules/*,./venv/*"
+max_line_length = 120
+aggressive = 1
+# E127 undoes PyCharm formatting
+ignore = "E127"
+
+[tool.isort]
+# use black compatible settings
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true

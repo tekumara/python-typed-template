@@ -1,0 +1,6 @@
+{
+  "repo_name": "repo-name",
+  "package_name": "packagename",
+  "distribution_name": "{{ cookiecutter.package_name|replace('_', '-') }}",
+  "description": "one line description of your project"
+}

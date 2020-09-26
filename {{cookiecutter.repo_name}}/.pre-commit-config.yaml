@@ -1,0 +1,40 @@
+# unless otherwise specified, hooks run on push only
+default_stages: [push]
+repos:
+  # vscode uses autopep8 too so it has been installed into the virtualenv
+  - repo: local
+    hooks:
+      - id: autopep8
+        name: autopep8
+        entry: venv/bin/autopep8
+        language: system
+        types: [python]
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: venv/bin/isort
+        language: system
+        types: [python]
+  # vscode uses flake8 too so it has been installed into the virtualenv
+  - repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: venv/bin/flake8
+        language: system
+        types: [python]
+  # these hooks require the project's virtualenv
+  - repo: local
+    hooks:
+      - id: pyright
+        name: pyright
+        entry: make pyright
+        language: system
+        types: [python]
+      - id: test
+        name: test
+        entry: make test
+        pass_filenames: false
+        language: system
+        types: [python]
