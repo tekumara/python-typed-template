@@ -40,7 +40,8 @@ To create a project, aka bake a cookie 🍪:
 
 ```
 cookiecutter git@github.com:tekumara/python-typed-template.git
-cd repo-name        # use the repo-name you specified during template creation here
+# replace repo-name below with the name you specified during template creation
+cd repo-name
 git init && git commit -m 'root commit' --allow-empty
 make install
 ```
