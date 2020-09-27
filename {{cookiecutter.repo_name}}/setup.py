@@ -18,7 +18,7 @@ setup(
         "dev": [
             "black==20.8b1",
             # pin importlib_metadata to avoid conflict
-            "importlib_metadata==1.7.0",
+            "importlib_metadata==2.0.0",
             "isort==5.5.3",
             "flake8==3.8.3",
             "flake8-annotations==2.3.0",
