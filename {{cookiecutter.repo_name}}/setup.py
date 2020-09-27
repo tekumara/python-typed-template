@@ -16,7 +16,7 @@ setup(
     install_requires=[],
     extras_require={
         "dev": [
-            "autopep8==1.5.4",
+            "black==20.8b1",
             # pin importlib_metadata to avoid conflict
             "importlib_metadata==1.7.0",
             "isort==5.5.3",

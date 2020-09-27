@@ -1,12 +1,12 @@
 # unless otherwise specified, hooks run on push only
 default_stages: [push]
 repos:
-  # vscode uses autopep8 too so it has been installed into the virtualenv
+  # formatters and linters are available in the virtualenv so they can be run from the makefile & vscode
   - repo: local
     hooks:
-      - id: autopep8
-        name: autopep8
-        entry: venv/bin/autopep8
+      - id: black
+        name: black
+        entry: venv/bin/black
         language: system
         types: [python]
   - repo: local
@@ -16,7 +16,6 @@ repos:
         entry: venv/bin/isort
         language: system
         types: [python]
-  # vscode uses flake8 too so it has been installed into the virtualenv
   - repo: local
     hooks:
       - id: flake8

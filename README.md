@@ -5,7 +5,7 @@ A minimal, generic, and opinionated template for **typed ✨** python projects t
 - enforced type hints for non-test code because [_"explicit is better than implicit"_](https://www.python.org/dev/peps/pep-0020/)
 - [pyright](https://github.com/tekumara/notes/blob/master/pyright.md) to check those type hints because it's more accurate and faster than mypy
 - flake8 which is faster than pylint and [comprehensive enough](https://github.com/tekumara/notes/blob/master/python-linting.md)
-- a line length of 120 and autopep8 as a minimal code-formatter rather than black which is maximal
+- a line length of 120 and black as formatter
 - pytest for tests because it doesn't [require classes](https://www.youtube.com/watch?v=o9pEzgHorH0) unlike unittest
 - [pre-commit](https://github.com/tekumara/notes/blob/master/pre-commit.md) to run the above on push, rather than commit, so your flow is interrupted less
 - [setup.py]({{cookiecutter.repo_name}}/setup.py) for describing requirements including >= python 3.7 (ie: no requirements.txt)

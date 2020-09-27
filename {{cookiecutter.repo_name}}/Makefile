@@ -25,7 +25,7 @@ install: $(venv) node_modules $(if $(value CI),,install-hooks)
 
 ## format all code
 format: $(venv)
-	$(venv)/bin/autopep8 .
+	$(venv)/bin/black .
 	$(venv)/bin/isort .
 
 ## lint code and run static type check
