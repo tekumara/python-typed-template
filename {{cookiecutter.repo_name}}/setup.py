@@ -21,7 +21,7 @@ setup(
             "importlib_metadata==1.7.0",
             "isort==5.5.3",
             "flake8==3.8.3",
-            "flake8-annotations==2.3.0",
+            "flake8-annotations==2.4.0",
             "flake8-colors==0.1.6",
             "pre-commit==2.7.1",
             "pytest==6.1.0",
