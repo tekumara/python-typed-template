@@ -1,4 +1,4 @@
-# Python base template 🐍
+# Python typed template 🐍
 
 A minimal, generic, and opinionated template for **typed ✨** python projects that includes:
 
