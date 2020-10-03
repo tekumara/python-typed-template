@@ -1,8 +1,4 @@
 {
-    "include": [
-        "{{cookiecutter.package_name}}",
-        "tests"
-    ],
     "strictDictionaryInference": true,
     "strictParameterNoneValue": true
 }
