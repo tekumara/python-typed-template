@@ -20,7 +20,7 @@ setup(
             # pin importlib_metadata to avoid conflict, must be <2
             "importlib_metadata==1.7.0",
             "isort==5.5.4",
-            "flake8==3.8.3",
+            "flake8==3.8.4",
             "flake8-annotations==2.4.1",
             "flake8-colors==0.1.6",
             "pre-commit==2.7.1",
