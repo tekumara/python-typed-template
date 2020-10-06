@@ -8,9 +8,9 @@ updates:
   - package-ecosystem: "pip" 
     directory: "{{cookiecutter.repo_name}}/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   
   - package-ecosystem: "npm"
     directory: "{{cookiecutter.repo_name}}/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
