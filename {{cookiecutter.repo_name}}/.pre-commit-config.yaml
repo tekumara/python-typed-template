@@ -29,6 +29,7 @@ repos:
       - id: pyright
         name: pyright
         entry: make pyright
+        pass_filenames: false
         language: system
         types: [python]
       - id: test
