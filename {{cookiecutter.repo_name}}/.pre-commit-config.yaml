@@ -9,8 +9,6 @@ repos:
         entry: venv/bin/black
         language: system
         types: [python]
-  - repo: local
-    hooks:
       - id: isort
         name: isort
         entry: venv/bin/isort
@@ -29,12 +27,14 @@ repos:
       - id: pyright
         name: pyright
         entry: make pyright
+        # run on all files
         pass_filenames: false
         language: system
         types: [python]
       - id: test
         name: test
         entry: make test
+        # run on all files
         pass_filenames: false
         language: system
         types: [python]
