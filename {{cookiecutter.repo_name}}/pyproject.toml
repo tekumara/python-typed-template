@@ -8,4 +8,4 @@ line-length = 120
 line_length = 120
 multi_line_output = 3
 include_trailing_comma = true
-skip = [ ".tox", "dist", "node_modules" , "venv", "build", ".git"]
+skip = [ ".tox", "dist", "node_modules" , "venv", "build", ".git", "typings"]
