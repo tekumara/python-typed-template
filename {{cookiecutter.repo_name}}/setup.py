@@ -22,7 +22,7 @@ setup(
             "isort==5.6.4",
             "flake8==3.8.4",
             "flake8-annotations==2.4.1",
-            "flake8-colors==0.1.6",
+            "flake8-colors==0.1.9",
             "pre-commit==2.9.2",
             "pytest==6.1.2",
         ]
