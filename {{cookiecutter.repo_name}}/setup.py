@@ -17,8 +17,6 @@ setup(
     extras_require={
         "dev": [
             "black==20.8b1",
-            # pin importlib_metadata to avoid conflict, must be <2
-            "importlib_metadata==1.7.0",
             "isort==5.6.4",
             "flake8==3.8.4",
             "flake8-annotations==2.4.1",
