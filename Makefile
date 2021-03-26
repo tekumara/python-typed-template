@@ -9,7 +9,7 @@ help:
 
 test-dir := /tmp/pbt
 test-cookie := $(test-dir)/cookie
-venv := $(test-dir)/venv
+venv := $(test-dir)/.venv
 cookiecutter := $(venv)/bin/cookiecutter
 
 $(cookiecutter):

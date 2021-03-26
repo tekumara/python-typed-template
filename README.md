@@ -7,7 +7,7 @@ A minimal, generic, and opinionated template for **typed ✨** python projects t
 - flake8 which is faster than pylint and [comprehensive enough](https://github.com/tekumara/notes/blob/master/python-linting.md)
 - a line length of 120 and black as formatter
 - pytest for tests because it doesn't [require classes](https://www.youtube.com/watch?v=o9pEzgHorH0) unlike unittest
-- [pre-commit](https://github.com/tekumara/notes/blob/master/pre-commit.md) to run the above on push, rather than commit, so your flow is interrupted less
+- [pre-commit](https://github.com/tekumara/notes/blob/master/pre-commit.md) to run the above on push, rather than commit, so your flow is interrupted less. Handy when you don't have CI or working in environments (eg: EC2, JupyterHub) without an IDE.
 - [setup.py]({{cookiecutter.repo_name}}/setup.py) for describing requirements including >= python 3.7 (ie: no requirements.txt)
 - a [Makefile]({{cookiecutter.repo_name}}/Makefile) for development/CI. It creates a virtualenv in _.venv/_ and sets up your development environment ie: git hooks, formatters and linters. When the requirements in `setup.py` change, the virtualenv is updated. No pipenv/poetry/conda required.
 - a single virtualenv is assumed with a set of requirements for all packages, rather than a monorepo with multiple projects that have different requirements
