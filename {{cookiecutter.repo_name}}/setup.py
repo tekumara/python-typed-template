@@ -17,12 +17,12 @@ setup(
     extras_require={
         "dev": [
             "black==20.8b1",
-            "isort==5.7.0",
-            "flake8==3.8.4",
-            "flake8-annotations==2.5.0",
+            "isort==5.8.0",
+            "flake8==3.9.0",
+            "flake8-annotations==2.6.2",
             "flake8-colors==0.1.9",
-            "pre-commit==2.10.1",
-            "pytest==6.2.2",
+            "pre-commit==2.12.0",
+            "pytest==6.2.3",
         ]
     },
 )
