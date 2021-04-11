@@ -15,7 +15,7 @@
 To get started run `make install`. This will:
 
 - install git hooks for formatting & linting on git push
-- create the virtualenv in _./.venv/_
+- create the virtualenv in _.venv/_
 - install this package in editable mode
 
 Then run `make` to see the options for running checks, tests etc.
