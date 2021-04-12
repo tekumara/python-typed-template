@@ -15,16 +15,18 @@ $(cookiecutter):
 	python3 -m venv --clear $(venv)
 	$(venv)/bin/pip install cookiecutter
 
+## remove the test cookie
 clean:
 	rm -rf $(test-cookie)
 
-$(test-cookie): $(cookiecutter)
+$(test-cookie): $(cookiecutter) $(shell find {{cookiecutter.repo_name}})
+	rm -rf $(test-cookie)
 	$(cookiecutter) -o $(test-cookie) --no-input .
-	ls -R1 $(test-cookie)
 	cd $(test-cookie)/repo-name && git init && git add . && make install hooks
+	touch $(test-cookie)
 
 ## bake a test cookie and run make install hooks
-test: clean $(test-cookie)
+test: $(test-cookie)
 
 ## list outdated packages
 outdated: $(test-cookie)
