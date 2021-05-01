@@ -12,7 +12,9 @@ setup(
     long_description_content_type="text/markdown",
     python_requires=">=3.7",
     packages=find_packages(exclude=["tests"]),
-    include_package_data=True,
+    package_data={
+        "": ["py.typed"],
+    },
     install_requires=[],
     extras_require={
         "dev": [
