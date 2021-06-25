@@ -19,6 +19,8 @@ per-file-ignores =
 # flake8-colors
 format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
 
+max-complexity = 10
+
 # print stats & count
 statistics = True
 count = True
