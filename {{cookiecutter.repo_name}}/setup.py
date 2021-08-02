@@ -18,7 +18,7 @@ setup(
     install_requires=[],
     extras_require={
         "dev": [
-            "black==21.6b0",
+            "black==21.7b0",
             "isort==5.9.3",
             "flake8==3.9.2",
             "flake8-annotations==2.6.2",
