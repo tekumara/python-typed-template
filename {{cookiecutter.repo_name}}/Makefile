@@ -14,7 +14,7 @@ $(pip):
 	# create empty virtualenv containing pip
 	$(if $(value VIRTUAL_ENV),$(error Cannot create a virtualenv when running in a virtualenv. Please deactivate the current virtual env $(VIRTUAL_ENV)),)
 	python3 -m venv --clear $(venv)
-	$(pip) install pip==21.1.2 setuptools==57.0.0 wheel==0.36.2
+	$(pip) install pip==21.2.2 setuptools==57.4.0 wheel==0.36.2
 
 $(venv): setup.py $(pip)
 	$(pip) install -e '.[dev]'
