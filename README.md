@@ -12,21 +12,22 @@ A minimal, generic, and opinionated template for **typed ✨** python projects t
 - a [Makefile]({{cookiecutter.repo_name}}/Makefile) for development/CI. It creates a virtualenv in _.venv/_ and sets up your development environment ie: git hooks, formatters and linters. When the requirements in `setup.py` change, the virtualenv is updated. No pipenv/poetry/conda required.
 - a single virtualenv is assumed with a set of requirements for all packages, rather than a monorepo with multiple projects that have different requirements
 - a directory structure that prescribes packages at the top-level for convenience rather than under _src/_
-- repo and package naming conventions (see below)
+- repo and package naming conventions (see [Template parameters](#template-parameters) below)
 
 And not much else. This is meant to be generic, so anything specific to only a subset of projects probably lives elsewhere.
 
 ## Project development prerequisites
 
-Projects created using this template have [development prerequisites]({{cookiecutter.repo_name}}/README.md#Prerequisites).
+Projects created using this template have [development prerequisites]({{cookiecutter.repo_name}}/README.md#Prerequisites). This includes node, which is required for pyright.
 
-## Naming conventions
+## Template parameters
 
-Repo names are lowered kebab-case, so hyphens rather than underscores, to be kind to humans. Likewise for the [distribution name](https://www.python.org/dev/peps/pep-0508/#names), ie: the name of the published wheel or source distribution.
+The template will ask for the following:
 
-A python packages is a group of modules, ie: a directory with a `__init__.py` file. It should have short all-lowercase names without hyphens. The use of underscores is discouraged (see [PEP8](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)).
-
-In most cases the package name and distribution name will be the same. However if the package name contains an underscore, its hyphenised version will be suggested for the distribution name.
+- `repo_name`: The name of your repo. Repo names are lowered kebab-case, so hyphens rather than underscores, to be kind to humans.
+- `package_name`: The name of your main python package. A python package is a group of modules, ie: a directory with _\_\_init\_\_.py_ file. Choose a short all-lowercase name without hyphens. The use of underscores is discouraged (see [PEP8](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)).
+- [`distribution_name`](https://www.python.org/dev/peps/pep-0508/#names): The name of the artifact when your project is built as a wheel or source distribution (aka sdist). Distributions names are lowered kebab-case. In most cases the package name and distribution name will be the same. This is used in _setup.py_ and needed even if you aren't building a wheel or sdist.
+- `description`: a one line description of your project.
 
 ## Getting started
 
