@@ -19,7 +19,7 @@ $(cookiecutter):
 clean:
 	rm -rf $(test-cookie)
 
-$(test-cookie): $(cookiecutter) $(shell find {{cookiecutter.repo_name}})
+$(test-cookie): $(cookiecutter) $(shell find {{cookiecutter.repo_name}}) cookiecutter.json
 	rm -rf $(test-cookie)
 	$(cookiecutter) -o $(test-cookie) --no-input .
 	cd $(test-cookie)/repo-name && git init && git add . && make install hooks

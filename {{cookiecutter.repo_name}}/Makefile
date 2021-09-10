@@ -20,6 +20,10 @@ $(venv): setup.py $(pip)
 	$(pip) install -e '.[dev]'
 	touch $(venv)
 
+# delete the venv
+clean:
+	rm -rf $(venv)
+
 ## create venv and install this package and hooks
 install: $(venv) node_modules $(if $(value CI),,install-hooks)
 
