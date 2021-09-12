@@ -1,5 +1,7 @@
 # Python typed template 🐍
 
+[![Build](https://github.com/tekumara/python-typed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/tekumara/python-typed-template/actions/workflows/ci.yml)
+
 A minimal, generic, and opinionated template for **typed ✨** python projects that includes:
 
 - enforced type hints for non-test code because [_"explicit is better than implicit"_](https://www.python.org/dev/peps/pep-0020/)
