@@ -9,6 +9,7 @@ repos:
         entry: .venv/bin/black
         language: system
         types: [python]
+        require_serial: true
       - id: isort
         name: isort
         entry: .venv/bin/isort
