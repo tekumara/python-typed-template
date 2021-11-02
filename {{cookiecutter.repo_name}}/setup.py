@@ -20,8 +20,8 @@ setup(
         "dev": [
             "black==21.7b0",
             "isort==5.9.3",
-            "flake8==3.9.2",
-            "flake8-annotations==2.6.2",
+            "flake8==4.0.1",
+            "flake8-annotations==2.7.0",
             "flake8-colors==0.1.9",
             "pre-commit==2.15.0",
             "pytest==6.2.5",
