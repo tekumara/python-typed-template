@@ -18,13 +18,13 @@ setup(
     install_requires=[],
     extras_require={
         "dev": [
-            "black==21.10b0",
-            "isort==5.9.3",
-            "flake8==4.0.1",
-            "flake8-annotations==2.7.0",
-            "flake8-colors==0.1.9",
-            "pre-commit==2.15.0",
-            "pytest==6.2.5",
+            "black~=21.10b0",
+            "isort~=5.9",
+            "flake8~=4.0",
+            "flake8-annotations~=2.7",
+            "flake8-colors~=0.1",
+            "pre-commit~=2.15",
+            "pytest~=6.2",
         ]
     },
 )
