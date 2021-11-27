@@ -11,9 +11,9 @@ venv = .venv
 pip := $(venv)/bin/pip
 
 $(pip):
-	# create empty virtualenv containing pip
-	$(if $(value VIRTUAL_ENV),$(error Cannot create a virtualenv when running in a virtualenv. Please deactivate the current virtual env $(VIRTUAL_ENV)),)
-	python3 -m venv --clear $(venv)
+# create venv using system python when venv is active
+	PATH=$${PATH#$${VIRTUAL_ENV}/bin:} python3 -m venv --clear $(venv)
+	$(venv)/bin/python --version
 	$(pip) install pip~=21.3 setuptools~=58.4 wheel~=0.37
 
 $(venv): setup.py $(pip)
@@ -45,7 +45,8 @@ node_modules: package.json
 
 ## pyright
 pyright: node_modules $(venv)
-	source $(venv)/bin/activate && node_modules/.bin/pyright
+# activate venv so pyright can find dependencies
+	PATH="$(venv)/bin:$$PATH" node_modules/.bin/pyright
 
 ## run tests
 test: $(venv)
