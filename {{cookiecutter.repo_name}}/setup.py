@@ -19,6 +19,7 @@ setup(
     extras_require={
         "dev": [
             "black~=21.10b0",
+            "build~=0.7",
             "isort~=5.9",
             "flake8~=4.0",
             "flake8-annotations~=2.7",
