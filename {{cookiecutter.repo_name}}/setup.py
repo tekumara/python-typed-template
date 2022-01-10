@@ -18,6 +18,7 @@ setup(
     install_requires=[],
     extras_require={
         "dev": [
+            "autoflake~=1.4",
             "black~=21.10b0",
             "build~=0.7",
             "isort~=5.9",
