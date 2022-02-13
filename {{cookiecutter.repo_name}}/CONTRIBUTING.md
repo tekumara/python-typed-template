@@ -1,6 +1,12 @@
 # Contributing 🌳
 
-## Development environment
+## Prerequisites
+
+- make
+- node (required for pyright)
+- python >= 3.7
+
+## Getting started
 
 `make install` creates the dev environment with:
 
@@ -10,4 +16,8 @@
 
 `. .venv/bin/activate` activates the virtualenv.
 
-Run `make` to see the options for running checks, tests etc. make targets that use the virtualenv will update it when _setup.py_ changes.
+The make targets will update the virtualenv when _setup.py_ changes.
+
+## Usage
+
+Run `make` to see the options for running tests, linting, formatting etc.

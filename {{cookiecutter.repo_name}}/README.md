@@ -2,14 +2,6 @@
 
 {{cookiecutter.description}}
 
-## Getting started
+## Contributing
 
-Prerequisites:
-
-- make
-- node (required for pyright)
-- python >= 3.7
-
-To start:
-
-- Install the [development environment](CONTRIBUTING.md#Development-environment): `make install`
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get started and develop in this repo.
