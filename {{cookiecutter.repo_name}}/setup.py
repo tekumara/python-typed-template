@@ -20,7 +20,7 @@ setup(
             "flake8-annotations~=2.7",
             "flake8-colors~=0.1",
             "pre-commit~=2.15",
-            "pytest~=6.2",
+            "pytest~=7.0",
         ]
     },
 )
