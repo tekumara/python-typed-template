@@ -20,7 +20,7 @@ And not much else. This is meant to be generic, so anything specific to only a s
 
 ## Project development prerequisites
 
-Projects created using this template have [development prerequisites]({{cookiecutter.repo_name}}/README.md#Prerequisites). This includes node, which is required for pyright.
+Projects created using this template have [development prerequisites]({{cookiecutter.repo_name}}/CONTRIBUTING.md#Prerequisites). This includes node, which is required for pyright.
 
 ## Template parameters
 
