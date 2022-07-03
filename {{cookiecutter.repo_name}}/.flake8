@@ -1,6 +1,6 @@
 [flake8]
 max-line-length=120
-exclude = .git,__pycache__,node_modules,typings,.tox,build,dist,.venv
+exclude = .git,__pycache__,node_modules,typings,.tox,build,dist,.venv,.eggs
 
 ignore =
     # The following are ignored because they will be fixed by formatter/isort
