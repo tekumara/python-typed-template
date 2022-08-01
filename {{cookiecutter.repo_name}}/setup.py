@@ -16,7 +16,7 @@ setup(
             "black~=22.3",
             "build~=0.7",
             "isort~=5.9",
-            "flake8~=4.0",
+            "flake8>=4,<6",
             "flake8-annotations~=2.7",
             "flake8-colors~=0.1",
             "pre-commit~=2.15",
