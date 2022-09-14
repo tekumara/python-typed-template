@@ -2,5 +2,6 @@
     "strictListInference": true,
     "strictDictionaryInference": true,
     "strictParameterNoneValue": true,
-    "reportTypedDictNotRequiredAccess": false
+    "reportTypedDictNotRequiredAccess": false,
+    "exclude": ["**/node_modules", "**/__pycache__", "**/.*", "build"],
 }

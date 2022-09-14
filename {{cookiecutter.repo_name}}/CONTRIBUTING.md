@@ -4,7 +4,7 @@
 
 - make
 - node (required for pyright)
-- python >= 3.7
+- python >= 3.9
 
 ## Getting started
 
@@ -16,7 +16,7 @@
 
 `. .venv/bin/activate` activates the virtualenv.
 
-The make targets will update the virtualenv when _setup.py_ changes.
+The make targets will update the virtualenv when _pyproject.toml_ changes.
 
 ## Usage
 
