@@ -5,27 +5,15 @@ repos:
   - repo: local
     hooks:
     hooks:
-      - id: autoflake
-        name: autoflake
-        entry: .venv/bin/autoflake
-        language: system
-        types: [python]
       - id: black
         name: black
         entry: .venv/bin/black
         language: system
         types: [python]
         require_serial: true
-      - id: isort
-        name: isort
-        entry: .venv/bin/isort
-        language: system
-        types: [python]
-  - repo: local
-    hooks:
-      - id: flake8
-        name: flake8
-        entry: .venv/bin/flake8
+      - id: ruff
+        name: ruff
+        entry: .venv/bin/ruff
         language: system
         types: [python]
   # these hooks require the project's virtualenv

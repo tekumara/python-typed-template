@@ -16,7 +16,7 @@ $(pip):
 	$(venv)/bin/python --version
 	$(pip) install pip~=22.3 wheel~=0.37
 
-$(venv): setup.py $(pip)
+$(venv): pyproject.toml $(pip)
 	$(pip) install -e '.[dev]'
 	touch $(venv)
 
@@ -29,16 +29,15 @@ install: $(venv) node_modules $(if $(value CI),,install-hooks)
 
 ## format all code
 format: $(venv)
-	$(venv)/bin/autoflake .
 	$(venv)/bin/black .
-	$(venv)/bin/isort .
+	$(venv)/bin/ruff .
 
 ## lint code and run static type check
 check: lint pyright
 
-## lint using flake8
+## lint code
 lint: $(venv)
-	$(venv)/bin/flake8
+	$(venv)/bin/ruff .
 
 node_modules: package.json
 	npm install --no-save

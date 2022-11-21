@@ -6,7 +6,7 @@ A minimal, generic, and opinionated template for **typed ✨** python projects t
 
 - enforced type hints for non-test code because [_"explicit is better than implicit"_](https://www.python.org/dev/peps/pep-0020/)
 - [pyright](https://github.com/tekumara/notes/blob/master/pyright.md) to check those type hints because it's more accurate and faster than mypy
-- flake8 which is faster than pylint and [comprehensive enough](https://github.com/tekumara/notes/blob/master/python-linting.md)
+- [ruff](https://github.com/charliermarsh/ruff) for linting, import sorting, and auto fixing (eg: removing unused imports) because its the fastest and most feature complete solution
 - a line length of 120 and black as formatter
 - pytest for tests because it doesn't [require classes](https://www.youtube.com/watch?v=o9pEzgHorH0) unlike unittest
 - [pre-commit](https://github.com/tekumara/notes/blob/master/pre-commit.md) to run the above on push, rather than commit, so your flow is interrupted less. Handy when you don't have CI or working in environments (eg: EC2, JupyterHub) without an IDE.
