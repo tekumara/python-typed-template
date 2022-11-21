@@ -26,6 +26,12 @@ exclude = ["tests*"]
 [build-system]
 requires = ["setuptools~=65.5", "wheel~=0.37"]
 
+[tool.autoflake]
+in-place = true
+recursive = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+
 [tool.black]
 line-length = 120
 
