@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help clean install format check lint pyright test hooks install-hooks
+.PHONY: help clean install format check lint pyright test dist hooks install-hooks
 
 ## display help message
 help:
@@ -51,6 +51,11 @@ pyright: node_modules $(venv)
 ## run tests
 test: $(venv)
 	$(venv)/bin/pytest
+
+## build python distribution
+dist: $(venv)
+	rm -rf dist *.egg-info
+	$(venv)/bin/python -m build --sdist --wheel
 
 ## run pre-commit git hooks on all files
 hooks: $(venv)
