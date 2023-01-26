@@ -4,6 +4,7 @@ description = "{{cookiecutter.description}}"
 version = "0.0.0"
 readme = "README.md"
 requires-python = ">=3.9"
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
