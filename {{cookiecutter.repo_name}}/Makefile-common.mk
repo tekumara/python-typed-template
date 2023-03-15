@@ -52,6 +52,10 @@ dist: $(venv)
 	rm -rf build dist *.egg-info
 	$(venv)/bin/python -m build --sdist --wheel
 
+## publish to pypi
+publish: $(venv)
+	$(venv)/bin/twine upload dist/*
+
 ## run pre-commit git hooks on all files
 hooks: $(venv)
 	$(venv)/bin/pre-commit run --show-diff-on-failure --color=always --all-files --hook-stage push

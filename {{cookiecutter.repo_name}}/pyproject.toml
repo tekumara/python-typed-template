@@ -19,11 +19,10 @@ dev = [
 where = ["."]
 exclude = ["tests*"]
 
-# use PyCharm default line length of 120
-
 [build-system]
 requires = ["setuptools~=66.1", "wheel~=0.37"]
 
+# use PyCharm default line length of 120
 [tool.black]
 line-length = 120
 
