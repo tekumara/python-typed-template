@@ -16,12 +16,12 @@ dev = [
     "twine~=4.0",
 ]
 
+[build-system]
+requires = ["setuptools~=66.1", "wheel~=0.37"]
+
 [tool.setuptools.packages.find]
 where = ["."]
 exclude = ["tests*"]
-
-[build-system]
-requires = ["setuptools~=66.1", "wheel~=0.37"]
 
 # use PyCharm default line length of 120
 [tool.black]
@@ -47,6 +47,10 @@ select = [
     "I",
     # flake8-unused-arguments
     "ARG",
+    # flake8-self
+    "SLF",
+    # ruff-specific
+    "RUF",
 ]
 ignore = [
     # allow untyped self and cls args, and no return type from dunder methods
