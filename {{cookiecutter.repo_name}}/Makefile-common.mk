@@ -16,7 +16,7 @@ $(pip):
 	$(venv)/bin/python --version
 	$(pip) install pip~=23.0 wheel~=0.40
 
-$(venv): pyproject.toml $(pip)
+$(venv): $(if $(value CI),|,) pyproject.toml $(pip)
 	$(pip) install -e '.[dev]'
 	touch $(venv)
 
