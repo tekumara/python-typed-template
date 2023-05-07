@@ -27,6 +27,13 @@ exclude = ["tests*"]
 [tool.black]
 line-length = 120
 
+[tool.pyright]
+exclude = ["**/node_modules", "**/__pycache__", "**/.*", "build"]
+strictListInference = true
+strictDictionaryInference = true
+strictParameterNoneValue = true
+reportTypedDictNotRequiredAccess = false
+
 [tool.ruff]
 line-length = 120
 
