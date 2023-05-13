@@ -32,3 +32,4 @@ test: $(test-cookie)
 outdated: $(test-cookie)
 	$(test-cookie)/repo-name/.venv/bin/pip list --outdated
 	cd $(test-cookie)/repo-name && npm outdated
+	cd $(test-cookie)/repo-name && .venv/bin/pre-commit autoupdate
