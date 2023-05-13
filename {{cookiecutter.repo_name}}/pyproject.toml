@@ -17,7 +17,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["setuptools~=66.1", "wheel~=0.37"]
+requires = ["setuptools~=67.7", "wheel~=0.40"]
 
 [tool.setuptools.packages.find]
 where = ["."]
