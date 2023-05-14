@@ -20,6 +20,10 @@ $(venv): $(if $(value CI),|,) pyproject.toml $(pip)
 	$(pip) install -e '.[dev]'
 	touch $(venv)
 
+node_modules: package.json
+	npm install --no-save
+	touch node_modules
+
 # delete the venv
 clean:
 	rm -rf $(venv)
@@ -27,16 +31,13 @@ clean:
 ## create venv and install this package and hooks
 install: $(venv) node_modules $(if $(value CI),,install-hooks)
 
-## lint code and run static type check
-check: lint pyright
+## lint, format and type check
+check: export SKIP=test
+check: hooks
 
-## lint and format code
-lint: $(venv)
-	SKIP=pyright,test $(venv)/bin/pre-commit run --show-diff-on-failure --color=always --all-files --hook-stage push
-
-node_modules: package.json
-	npm install --no-save
-	touch node_modules
+## lint and format
+lint: export SKIP=pyright,test
+lint: hooks
 
 ## pyright
 pyright: node_modules $(venv)
