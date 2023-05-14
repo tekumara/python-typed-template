@@ -28,6 +28,8 @@ exclude = ["tests*"]
 line-length = 120
 
 [tool.pyright]
+venvPath = "."
+venv = ".venv"
 exclude = ["**/node_modules", "**/__pycache__", "**/.*", "build"]
 strictListInference = true
 strictDictionaryInference = true
