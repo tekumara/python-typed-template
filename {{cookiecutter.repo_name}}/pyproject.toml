@@ -12,7 +12,7 @@ dev = [
     "build~=0.10",
     "pre-commit~=3.0",
     "pytest~=7.2",
-    "ruff~=0.0.267",
+    "ruff~=0.0.270",
     "twine~=4.0",
 ]
 
