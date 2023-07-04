@@ -22,10 +22,10 @@ clean:
 $(test-cookie): $(cookiecutter) $(shell find {{cookiecutter.repo_name}}) cookiecutter.json
 	rm -rf $(test-cookie)
 	$(cookiecutter) -o $(test-cookie) --no-input .
-	cd $(test-cookie)/repo-name && git init && git add . && make install hooks
+	cd $(test-cookie)/repo-name && git init && git add . && make hooks
 	touch $(test-cookie)
 
-## bake a test cookie and run make install hooks
+## bake a test cookie and run make hooks
 test: $(test-cookie)
 
 ## list outdated packages
