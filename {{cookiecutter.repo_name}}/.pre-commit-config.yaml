@@ -8,12 +8,6 @@ repos:
   # formatters and linters are available in the virtualenv so they can be run from the makefile & vscode
   - repo: local
     hooks:
-      - id: black
-        name: black
-        entry: .venv/bin/black
-        language: system
-        types: [python]
-        require_serial: true
       - id: ruff
         name: ruff
         entry: .venv/bin/ruff
@@ -26,9 +20,12 @@ repos:
         pass_filenames: false
         language: system
         types: [python]
-  # these hooks require the project's virtualenv
-  - repo: local
-    hooks:
+      - id: black
+        name: black
+        entry: .venv/bin/black
+        language: system
+        types: [python]
+        require_serial: true
       - id: test
         name: test
         entry: make test
