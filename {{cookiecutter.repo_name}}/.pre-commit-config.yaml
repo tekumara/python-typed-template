@@ -2,7 +2,7 @@
 default_stages: [push]
 repos:
   - repo: https://github.com/crate-ci/typos
-    rev: v1.14.9
+    rev: v1.16.23
     hooks:
       - id: typos
   # formatters and linters are available in the virtualenv so they can be run from the makefile & vscode
@@ -28,7 +28,7 @@ repos:
         require_serial: true
       - id: test
         name: test
-        entry: make test
+        entry: .venv/bin/pytest
         # run on all files
         pass_filenames: false
         language: system
