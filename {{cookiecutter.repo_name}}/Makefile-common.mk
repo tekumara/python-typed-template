@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help clean install format check lint pyright test dist hooks install-hooks
+.PHONY: help clean install format check pyright test dist hooks install-hooks
 
 ## display help message
 help:
@@ -31,15 +31,15 @@ clean:
 ## create venv and install this package and hooks
 install: $(venv) node_modules $(if $(value CI),,install-hooks)
 
-## lint, format and type check
+## format, lint and type check
 check: export SKIP=test
 check: hooks
 
-## lint and format
-lint: export SKIP=pyright,test
-lint: hooks
+## format and lint
+format: export SKIP=pyright,test
+format: hooks
 
-## pyright
+## pyright type check
 pyright: node_modules $(venv)
 	node_modules/.bin/pyright
 
@@ -58,7 +58,7 @@ publish: $(venv)
 
 ## run pre-commit git hooks on all files
 hooks: node_modules $(venv)
-	$(venv)/bin/pre-commit run --show-diff-on-failure --color=always --all-files --hook-stage push
+	$(venv)/bin/pre-commit run --color=always --all-files --hook-stage push
 
 install-hooks: .git/hooks/pre-push
 
