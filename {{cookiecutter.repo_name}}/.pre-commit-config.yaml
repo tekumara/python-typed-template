@@ -13,6 +13,12 @@ repos:
         entry: .venv/bin/ruff
         language: system
         types: [python]
+      - id: black
+        name: black
+        entry: .venv/bin/black
+        language: system
+        types: [python]
+        require_serial: true
       - id: pyright
         name: pyright
         entry: node_modules/.bin/pyright
@@ -20,12 +26,6 @@ repos:
         pass_filenames: false
         language: system
         types: [python]
-      - id: black
-        name: black
-        entry: .venv/bin/black
-        language: system
-        types: [python]
-        require_serial: true
       - id: test
         name: test
         entry: .venv/bin/pytest
