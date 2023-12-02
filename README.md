@@ -28,7 +28,7 @@ The template will ask for the following:
 
 - `repo_name`: The name of your repo. Repo names are lowered kebab-case, so hyphens rather than underscores, to be kind to humans.
 - `package_name`: The name of your main python package. A python package is a group of modules, ie: a directory with _\_\_init\_\_.py_ file. Choose a short all-lowercase name without hyphens. The use of underscores is discouraged (see [PEP8](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)).
-- [`distribution_name`](https://www.python.org/dev/peps/pep-0508/#names): The name of the artifact when your project is built as a wheel or source distribution (aka sdist). Distributions names are lowered kebab-case. In most cases the package name and distribution name will be the same. This is used in _pyproject.toml_ and needed even if you aren't building a wheel or sdist.
+- [`project_name`](https://www.python.org/dev/peps/pep-0508/#names): The name of the artifact when your project is built as a wheel or source distribution (aka sdist). Project names are lowered kebab-case. In most cases the package name and project name will be the same. This is used in _pyproject.toml_ and needed even if you aren't building a wheel or sdist.
 - `description`: a one line description of your project.
 
 ## Getting started

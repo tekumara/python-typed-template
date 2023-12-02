@@ -6,7 +6,7 @@ PACKAGE_REGEX = r'^[_a-z][_a-z0-9]+$'
 
 repo_name = '{{ cookiecutter.repo_name }}'
 package_name = '{{ cookiecutter.package_name }}'
-distribution_name = '{{ cookiecutter.distribution_name }}'
+project_name = '{{ cookiecutter.project_name }}'
 
 # enforce naming conventions
 
@@ -27,10 +27,9 @@ if "_" in package_name:
 if len(package_name) > 12:
     print('WARNING: The package name "%s" is longer than 12 chars. PEP8 encourages short package names.' % package_name)
 
-
-if "_" in distribution_name:
-    print('ERROR: The distribution name "%s" contains underscores. Hyphens are more user-friendly. Remove the underscores or use - instead.' % distribution_name)
+if "_" in project_name:
+    print('ERROR: The project name "%s" contains underscores. Hyphens are more user-friendly. Remove the underscores or use - instead.' % project_name)
     sys.exit(1)
-elif not distribution_name.islower():
-    print('ERROR: The distribution name "%s" contains upper case characters. Use lower case.' % distribution_name)
+elif not project_name.islower():
+    print('ERROR: The project name "%s" contains upper case characters. Use lower case.' % project_name)
     sys.exit(1)
