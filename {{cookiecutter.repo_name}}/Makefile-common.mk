@@ -10,7 +10,7 @@ help:
 venv ?= .venv
 pip := $(venv)/bin/pip
 
-$(pip):
+$(pip): $(if $(value CI),|,) .python-version
 # create venv using system python even when another venv is active
 	PATH=$${PATH#$${VIRTUAL_ENV}/bin:} python3 -m venv --clear $(venv)
 	$(venv)/bin/python --version
