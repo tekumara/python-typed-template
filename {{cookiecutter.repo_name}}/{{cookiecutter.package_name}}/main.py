@@ -1,8 +1,7 @@
 import sys
-from typing import List
 
 
-def main(args: List[str] = sys.argv[1:]) -> None:
+def main(args: list[str] = sys.argv[1:]) -> None:
     print(f"hello {args[0]}!")
 
 
