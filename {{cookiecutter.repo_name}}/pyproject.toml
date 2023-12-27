@@ -3,7 +3,7 @@ name = "{{cookiecutter.project_name}}"
 description = "{{cookiecutter.description}}"
 version = "0.0.0"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
@@ -16,12 +16,12 @@ dev = [
     "twine~=4.0",
 ]
 
-[build-system]
-requires = ["setuptools~=68.2", "wheel~=0.40"]
-
 [tool.setuptools.packages.find]
 where = ["."]
 exclude = ["tests*"]
+
+[build-system]
+requires = ["setuptools~=68.2", "wheel~=0.40"]
 
 [tool.black]
 # use PyCharm default line length of 120

@@ -4,7 +4,7 @@
 
 - make
 - node (required for pyright)
-- python >= 3.10
+- python >= 3.11
 
 ## Getting started
 

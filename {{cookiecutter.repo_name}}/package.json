@@ -1,5 +1,4 @@
 {
-    "name": "{{cookiecutter.repo_name}}",
     "devDependencies": {
         "pyright": "1.1.330"
     }
