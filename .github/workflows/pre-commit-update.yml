@@ -34,7 +34,7 @@ jobs:
           git checkout -b bump-pre-commit-hooks
           git add .
           git commit -m "chore: bump pre-commit hooks"
-          git push -f origin HEAD:bump-pre-commit-hooks
+          git push -fu
       - name: Open pull request
         env:
           GH_TOKEN: ${{ github.token }}
