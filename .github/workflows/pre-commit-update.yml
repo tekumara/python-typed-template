@@ -1,0 +1,37 @@
+# Until Dependabot support is released https://github.com/dependabot/dependabot-core/issues/1524
+name: Pre-commit update
+
+on:
+  # first day of every month
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Run autoupdate
+        run: |
+          make pc-update
+      - name: Commit and push
+        run: |
+          git add .
+          git commit -m bump
+          git push origin HEAD:bump-pre-commit-hooks
+      - name: Open pull request
+        run: |
+          gh pr create --title "chore: bump pre-commit hooks"

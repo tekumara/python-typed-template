@@ -31,3 +31,6 @@ outdated: $(test-cookie)
 	$(test-cookie)/.venv/bin/pip list --outdated
 	cd $(test-cookie) && npm outdated
 
+pc-update: $(test-cookie)
+	cd $(test-cookie) && .venv/bin/pre-commit autoupdate
+	cp $(test-cookie)/.pre-commit-config.yaml {{cookiecutter.repo_name}}/

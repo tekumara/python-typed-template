@@ -14,11 +14,5 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.11"
-    - name: Cache virtualenv
-      id: cache-venv
-      uses: actions/cache@v4
-      with:
-        path: .venv
-        key: ${{ runner.os }}-py${{ steps.setup-python.outputs.python-version }}-venv
     - name: make test
       run: make test
