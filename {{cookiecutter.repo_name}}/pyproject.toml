@@ -22,8 +22,6 @@ requires = ["setuptools~=69.1", "wheel~=0.42"]
 where = ["."]
 exclude = ["tests*", "node_modules*", "build*"]
 
-
-
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
