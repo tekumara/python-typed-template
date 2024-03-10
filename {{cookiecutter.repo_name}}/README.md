@@ -1,5 +1,7 @@
 # {{cookiecutter.project_name}}
 
+[![ci](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+
 {{cookiecutter.description}}
 
 ## Contributing

@@ -9,3 +9,4 @@ To identify outdated dependencies used by the template run `make outdated`
 ## Testing
 
 After making a change run `make test` to bake a project into _/tmp/cookie_.
+
