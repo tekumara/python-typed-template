@@ -7,7 +7,7 @@ SHELL = /bin/bash -o pipefail
 help:
 	@awk '/^##.*$$/,/^[~\/\.0-9a-zA-Z_-]+:/' $(MAKEFILE_LIST) | awk '!(NR%2){print $$0p}{p=$$0}' | awk 'BEGIN {FS = ":.*?##"}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort
 
-test-cookie := /tmp/cookie-ptt
+test-cookie := /tmp/cookie-ptt/my-repo
 venv := .venv
 cookiecutter := $(venv)/bin/cookiecutter
 
@@ -19,17 +19,15 @@ $(cookiecutter):
 clean:
 	rm -rf $(test-cookie)
 
-$(test-cookie): $(cookiecutter) $(shell find {{cookiecutter.repo_name}}) cookiecutter.json
-	rm -rf $(test-cookie)
-	$(cookiecutter) -o $(test-cookie) --no-input .
-	cd $(test-cookie)/repo-name && git init && git add . && make hooks
-	touch $(test-cookie)
-
 ## bake a test cookie and run make hooks
-test: $(test-cookie)
+test: $(cookiecutter) clean
+	$(cookiecutter) -o $(test-cookie)/../ --no-input --config-file cookiecutter-config.yaml .
+ifndef SKIP_HOOKS
+	cd $(test-cookie) && git init && git add . && make hooks
+endif
 
 ## list outdated packages
 outdated: $(test-cookie)
-	$(test-cookie)/repo-name/.venv/bin/pip list --outdated
-	cd $(test-cookie)/repo-name && npm outdated
-	cd $(test-cookie)/repo-name && .venv/bin/pre-commit autoupdate
+	$(test-cookie)/.venv/bin/pip list --outdated
+	cd $(test-cookie) && npm outdated
+
