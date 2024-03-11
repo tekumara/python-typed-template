@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help clean test outdated
+.PHONY: help snapshot test outdated pc-update
 
 ## display help message
 help:
@@ -22,7 +22,7 @@ snapshot: $(snapshot)
 test: $(snapshot)
 	cd $(snapshot) && git init && git add . && make hooks
 
-$(snapshot): $(cookiecutter) $(shell find {{cookiecutter.repo_name}}) cookiecutter*
+$(snapshot): $(shell find {{cookiecutter.repo_name}}) cookiecutter* | $(cookiecutter)
 	rm -rf $(snapshot)
 	$(cookiecutter) -o $(snapshot)/../ -f --no-input --config-file cookiecutter-config.yaml .
 	touch $(snapshot)
