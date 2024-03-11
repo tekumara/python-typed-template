@@ -23,8 +23,8 @@ jobs:
           python-version: "3.11"
       - name: Configure Git
         run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name pre-commit-update
+          git config user.email pre-commit-update@users.noreply.github.com
       - name: make test
         run: make test
       - name: pre-commit autoupdate

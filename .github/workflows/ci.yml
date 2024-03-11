@@ -18,3 +18,11 @@ jobs:
         python-version: "3.11"
     - name: Test
       run: make -B test
+    - name: Update snapshot
+      run: |
+        git config user.name snapshot
+        git config user.email snapshot@users.noreply.github.com
+        git add .
+        if git commit -m "chore: update snapshot"; then
+          git push
+        fi
