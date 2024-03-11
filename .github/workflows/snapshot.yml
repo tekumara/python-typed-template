@@ -7,9 +7,10 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
-  build:
+  snapshot:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -22,11 +23,16 @@ jobs:
       run: |
         git config user.name "$GITHUB_ACTOR"
         git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-    - name: make snapshot
-      run: make snapshot
+    - name: Snapshot
+      run: make -B snapshot
     - name: Commit and push any changes
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
         git add .
-        if git commit -m "chore: make snapshot"; then
+        if git commit -m "chore: update snapshot"; then
           git push
+          # git push won't trigger workflows so we manually do it
+          # see https://github.com/orgs/community/discussions/25702#discussioncomment-8650283
+          gh workflow run ci.yml
         fi
