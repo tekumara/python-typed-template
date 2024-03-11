@@ -1,0 +1,32 @@
+name: Snapshot
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      id: setup-python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - name: Configure Git
+      run: |
+        git config user.name "$GITHUB_ACTOR"
+        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+    - name: make snapshot
+      run: make snapshot
+    - name: Commit and push any changes
+      run: |
+        git add .
+        if git commit -m "chore: make snapshot"; then
+          git push
+        fi
