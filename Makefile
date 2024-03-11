@@ -27,12 +27,15 @@ $(snapshot): $(shell find {{cookiecutter.repo_name}}) cookiecutter* | $(cookiecu
 	$(cookiecutter) -o $(snapshot)/../ -f --no-input --config-file cookiecutter-config.yaml .
 	touch $(snapshot)
 
+$(snapshot)/.venv: $(snapshot)
+	cd $(snapshot) && make install
+
 ## list outdated packages
-outdated: $(snapshot)
+outdated: $(snapshot)/.venv
 	$(snapshot)/.venv/bin/pip list --outdated
 	cd $(snapshot) && npm outdated
 
 ## update pre-commit hooks
-pc-update: $(snapshot)
+pc-update: $(snapshot)/.venv
 	cd $(snapshot) && .venv/bin/pre-commit autoupdate
-	cp $(snapshot)/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
+	cp -p $(snapshot)/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
