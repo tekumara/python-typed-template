@@ -1,7 +1,7 @@
 [project]
 name = "my-project"
 description = "example cookie rendered from the template"
-version = "0.0.0"
+dynamic = ["version"]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -11,16 +11,20 @@ dev = [
     "build~=1.0",
     "pre-commit~=3.4",
     "pytest~=8.0",
-    "ruff~=0.5.0",
+    "ruff~=0.5.1",
     "twine~=5.0",
 ]
 
 [build-system]
-requires = ["setuptools~=69.1", "wheel~=0.42"]
+requires = ["setuptools~=69.1", "setuptools_scm~=8.0", "wheel~=0.42"]
 
 [tool.setuptools.packages.find]
 where = ["."]
 exclude = ["tests*", "node_modules*", "build*"]
+
+# enable setuptools_scm to set the version based on git tags
+[tool.setuptools_scm]
+fallback_version = "0.0.0"
 
 [tool.pyright]
 venvPath = "."
@@ -30,7 +34,9 @@ strictListInference = true
 strictDictionaryInference = true
 strictParameterNoneValue = true
 reportTypedDictNotRequiredAccess = false
+reportIncompatibleVariableOverride = true
 reportIncompatibleMethodOverride = true
+reportMatchNotExhaustive = true
 reportUnnecessaryTypeIgnoreComment = true
 
 [tool.ruff]
