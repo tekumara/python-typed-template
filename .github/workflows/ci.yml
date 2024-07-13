@@ -14,8 +14,6 @@ jobs:
     - name: Set up Python
       id: setup-python
       uses: actions/setup-python@v5
-      with:
-        python-version: "3.11"
     - name: Test
       run: make -B test
     - name: Update snapshot
