@@ -11,9 +11,12 @@ snapshot := snapshot/cookie
 venv := .venv
 cookiecutter := $(venv)/bin/cookiecutter
 
-$(cookiecutter):
+$(venv):
 	python3 -m venv --clear $(venv)
-	$(venv)/bin/pip install cookiecutter
+	$(venv)/bin/pip install cookiecutter pre-commit
+
+## create venv and install cookiecutter and hooks
+install: $(venv) $(if $(value CI),,install-hooks)
 
 ## make the snapshot cookie
 snapshot: $(snapshot)
@@ -22,7 +25,7 @@ snapshot: $(snapshot)
 test: $(snapshot)
 	cd $(snapshot) && git init && git add . && make hooks
 
-$(snapshot): $(shell find {{cookiecutter.repo_name}}) cookiecutter* | $(cookiecutter)
+$(snapshot): $(shell find {{cookiecutter.repo_name}}) cookiecutter* | $(venv)
 	rm -rf $(snapshot)
 	$(cookiecutter) -o $(snapshot)/../ -f --no-input --config-file cookiecutter-config.yaml .
 	touch $(snapshot)
@@ -39,3 +42,8 @@ outdated: $(snapshot)/.venv
 pc-update: $(snapshot)/.venv
 	cd $(snapshot) && .venv/bin/pre-commit autoupdate
 	cp -p $(snapshot)/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
+
+install-hooks: .git/hooks/pre-push
+
+.git/hooks/pre-push: $(venv)
+	$(venv)/bin/pre-commit install --install-hooks -t pre-push
