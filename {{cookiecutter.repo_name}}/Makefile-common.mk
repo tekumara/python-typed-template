@@ -52,7 +52,7 @@ test: $(venv)
 
 ## build python distribution
 dist: $(venv)
-	# start with a clean slate (see setuptools/#2347)
+# start with a clean slate (see setuptools/#2347)
 	rm -rf dist *.egg-info
 	$(venv)/bin/python -m build --sdist --wheel
 
