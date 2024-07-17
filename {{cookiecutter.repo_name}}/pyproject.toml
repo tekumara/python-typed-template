@@ -1,11 +1,7 @@
 [project]
 name = "{{cookiecutter.project_name}}"
 description = "{{cookiecutter.description}}"
-{%- if cookiecutter.setuptools_scm == "True" %}
 dynamic = ["version"]
-{% else %}
-version = "0.0.0"
-{% endif -%}
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -20,19 +16,16 @@ dev = [
 ]
 
 [build-system]
-{%- if cookiecutter.setuptools_scm == "True" %}
 requires = ["setuptools~=69.1", "setuptools_scm~=8.0", "wheel~=0.42"]
-{% else %}
-requires = ["setuptools~=69.1", "wheel~=0.42"]
-{% endif %}
+
 [tool.setuptools.packages.find]
 where = ["."]
 exclude = ["tests*", "node_modules*", "build*"]
-{% if cookiecutter.setuptools_scm == "True" %}
+
 # enable setuptools_scm to set the version based on git tags
 [tool.setuptools_scm]
 fallback_version = "0.0.0"
-{% endif %}
+
 [tool.pyright]
 venvPath = "."
 venv = ".venv"

@@ -2,6 +2,5 @@
   "repo_name": "repo-name",
   "package_name": "{{ cookiecutter.repo_name|replace('-', '') }}",
   "project_name": "{{ cookiecutter.repo_name }}",
-  "description": "one line description of your project",
-  "setuptools_scm": ["False", "True"]
+  "description": "one line description of your project"
 }
