@@ -11,7 +11,7 @@ project_name = '{{ cookiecutter.project_name }}'
 # enforce naming conventions
 
 if "_" in repo_name:
-    print('ERROR: The repo name "%s" contains underscores. Hyphens are more user-friendly. Remove the underscores or use - instead.' % package_name)
+    print('ERROR: The repo name "%s" contains underscores. Hyphens are more user-friendly. Remove the underscores or use - instead.' % repo_name)
     sys.exit(1)
 elif not repo_name.islower():
     print('ERROR: The repo name "%s" contains upper case characters. Use lower case.' % repo_name)
