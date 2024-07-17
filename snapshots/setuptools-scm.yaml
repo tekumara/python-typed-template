@@ -1,0 +1,6 @@
+default_context:
+    repo_name: "setuptools-scm"
+    package_name: "mypackage"
+    project_name: "my-project"
+    description: "example cookie rendered from the template with setuptools_scm"
+    setuptools_scm: "True"

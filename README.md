@@ -29,6 +29,7 @@ The template will ask for the following:
 - `package_name`: The name of your main python package. A python package is a group of modules, ie: a directory with _\_\_init\_\_.py_ file. Choose a short all-lowercase name without hyphens. The use of underscores is discouraged (see [PEP8](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)).
 - [`project_name`](https://www.python.org/dev/peps/pep-0508/#names): The name of the artifact when your project is built as a wheel or source distribution (aka sdist). Project names are lowered kebab-case. In most cases the package name and project name will be the same. This is used in _pyproject.toml_ and needed even if you aren't building a wheel or sdist.
 - `description`: a one line description of your project.
+- `setuptools_scm`: use setuptools_scm to derive the version from git tags. Versions are calculated from the git repo state as per [Default versioning scheme](https://github.com/pypa/setuptools_scm/blob/main/docs/usage.md#default-versioning-scheme).
 
 ## Getting started
 

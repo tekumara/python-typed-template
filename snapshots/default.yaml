@@ -3,3 +3,4 @@ default_context:
     package_name: "mypackage"
     project_name: "my-project"
     description: "example cookie rendered from the template"
+    setuptools_scm: "False"

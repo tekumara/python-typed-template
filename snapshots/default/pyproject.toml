@@ -1,7 +1,7 @@
 [project]
 name = "my-project"
 description = "example cookie rendered from the template"
-dynamic = ["version"]
+version = "0.0.0"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -16,15 +16,11 @@ dev = [
 ]
 
 [build-system]
-requires = ["setuptools~=69.1", "setuptools_scm~=8.0", "wheel~=0.42"]
+requires = ["setuptools~=69.1", "wheel~=0.42"]
 
 [tool.setuptools.packages.find]
 where = ["."]
 exclude = ["tests*", "node_modules*", "build*"]
-
-# enable setuptools_scm to set the version based on git tags
-[tool.setuptools_scm]
-fallback_version = "0.0.0"
 
 [tool.pyright]
 venvPath = "."
