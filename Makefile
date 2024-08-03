@@ -37,9 +37,9 @@ outdated: snapshots/default/.venv
 	cd snapshots/default && npm outdated
 
 ## update pre-commit hooks
-pc-update: $(snapshot)/.venv
-	cd $(snapshot) && .venv/bin/pre-commit autoupdate
-	cp -p $(snapshot)/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
+pc-update: snapshots/default/.venv
+	cd snapshots/default && .venv/bin/pre-commit autoupdate
+	cp -p snapshots/default/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
 
 install-hooks: .git/hooks/pre-push
 
