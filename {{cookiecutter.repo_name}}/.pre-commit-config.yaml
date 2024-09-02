@@ -2,7 +2,7 @@
 default_stages: [push]
 repos:
   - repo: https://github.com/crate-ci/typos
-    rev: typos-dict-v0.11.27
+    rev: v1.24.3
     hooks:
       - id: typos
   # formatters and linters are available in the virtualenv so they can be run from the makefile & vscode
