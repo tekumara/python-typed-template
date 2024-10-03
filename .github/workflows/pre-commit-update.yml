@@ -2,9 +2,9 @@
 name: Pre-commit update
 
 on:
-  # first day of every month
+  # second day of every month, to catch the crate-ci/typos monthly update
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "0 0 2 * *"
   workflow_dispatch:
 
 permissions:
