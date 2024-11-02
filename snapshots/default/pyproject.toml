@@ -59,7 +59,9 @@ select = [
     "RUF",  # ruff-specific
     "SIM",  # flake8-simplify
     "S113", # request-without-timeout
+    "ASYNC", # flake8-async
 ]
+
 ignore = [
     # allow untyped self and cls args
     "ANN101",
