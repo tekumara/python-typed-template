@@ -54,7 +54,7 @@ test: $(venv)
 dist: $(venv)
 # start with a clean slate (see setuptools/#2347)
 	rm -rf build dist *.egg-info
-	$(venv)/bin/python -m build --sdist --wheel
+	$(venv)/bin/python -m build --wheel
 
 ## publish to pypi
 publish: $(venv)
