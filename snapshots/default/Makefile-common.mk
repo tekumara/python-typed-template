@@ -11,7 +11,8 @@ venv ?= .venv
 # this is a symlink so we set the --check-symlink-times makeflag above
 python := $(venv)/bin/python
 # use uv if present, else fall back to pip
-pip = $(shell command -v uv >/dev/null && echo "uv pip" || echo "$(venv)/bin/pip")
+# set VIRTUAL_ENV to avoid uv installing into a different activated venv
+pip = $(shell command -v uv >/dev/null && echo "VIRTUAL_ENV=$(venv) uv pip" || echo "$(venv)/bin/pip")
 
 $(python): $(if $(value CI),|,) .python-version
 # create venv using system python even when another venv is active
