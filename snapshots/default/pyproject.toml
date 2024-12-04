@@ -11,7 +11,7 @@ dev = [
     "build~=1.0",
     "pre-commit~=4.0",
     "pytest~=8.0",
-    "ruff~=0.7.2",
+    "ruff~=0.8.1",
     "twine~=6.0",
 ]
 
@@ -63,9 +63,6 @@ select = [
 ]
 
 ignore = [
-    # allow untyped self and cls args
-    "ANN101",
-    "ANN102",
     # allow no return type from dunder methods
     "ANN204",
     # allow == True because pandas dataframes overload equality
