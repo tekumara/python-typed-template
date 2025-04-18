@@ -22,7 +22,7 @@ repos:
         require_serial: true
       - id: pyright
         name: pyright
-        entry: node_modules/.bin/pyright
+        entry: uv run pyright
         # run on all files to catch type errors that affect unchanged files
         pass_filenames: false
         language: system

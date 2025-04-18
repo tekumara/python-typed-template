@@ -18,16 +18,12 @@ $(venv): $(if $(value CI),|,) pyproject.toml $(python)
 	uv sync
 	touch $(venv)
 
-node_modules: package.json
-	npm install --no-save
-	touch node_modules
-
 # delete the venv
 clean:
 	rm -rf $(venv)
 
 ## create venv and install this package and hooks
-install: $(venv) node_modules $(if $(value CI),,install-hooks)
+install: $(venv) $(if $(value CI),,install-hooks)
 
 ## format, lint and type check
 check: export SKIP=test
@@ -38,8 +34,8 @@ format: export SKIP=pyright,test
 format: hooks
 
 ## pyright type check
-pyright: node_modules $(venv)
-	node_modules/.bin/pyright
+pyright: $(venv)
+	PYRIGHT_PYTHON_IGNORE_WARNINGS=1 uv run pyright
 
 ## run tests
 test: $(venv)
@@ -56,7 +52,7 @@ publish: $(venv)
 	uv run twine upload dist/*
 
 ## run pre-commit git hooks on all files
-hooks: node_modules $(venv)
+hooks: $(venv)
 	uv run pre-commit run --color=always --all-files --hook-stage push
 
 install-hooks: .git/hooks/pre-push
