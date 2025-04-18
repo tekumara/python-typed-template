@@ -1,21 +1,16 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help test outdated pc-update
+.PHONY: help install test outdated pc-update hooks
 
 ## display help message
 help:
 	@awk '/^##.*$$/,/^[~\/\.0-9a-zA-Z_-]+:/' $(MAKEFILE_LIST) | awk '!(NR%2){print $$0p}{p=$$0}' | awk 'BEGIN {FS = ":.*?##"}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort
 
-venv := .venv
-cookiecutter := $(venv)/bin/cookiecutter
 
-$(venv):
-	python3 -m venv --clear $(venv)
-	$(venv)/bin/pip install cookiecutter pre-commit
 
 ## create venv and install cookiecutter and hooks
-install: $(venv) $(if $(value CI),,install-hooks)
+install: $(if $(value CI),,install-hooks)
 
 
 ## run hooks on default snapshot
@@ -23,9 +18,9 @@ test: snapshots
 	cd snapshots/default && git init && git add . && make hooks
 
 ## make the snapshots
-snapshots: $(shell find {{cookiecutter.repo_name}}) snapshots/*.yaml | $(venv)
+snapshots: $(shell find {{cookiecutter.repo_name}}) snapshots/*.yaml
 	rm -rf snapshots/*/
-	for file in snapshots/*.yaml; do $(cookiecutter) -o snapshots -f --no-input --config-file $$file .; done
+	for file in snapshots/*.yaml; do uvx cookiecutter -o snapshots -f --no-input --config-file $$file .; done
 	touch snapshots
 
 snapshots/default/.venv: snapshots
@@ -33,15 +28,18 @@ snapshots/default/.venv: snapshots
 
 ## list outdated packages
 outdated: snapshots/default/.venv
-	snapshots/default/.venv/bin/pip list --outdated
+	cd snapshots/default && uv tree --outdated
 	cd snapshots/default && npm outdated
 
 ## update pre-commit hooks
 pc-update: snapshots/default/.venv
-	cd snapshots/default && .venv/bin/pre-commit autoupdate
+	cd snapshots/default && uv run pre-commit autoupdate
 	cp -p snapshots/default/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
 
 install-hooks: .git/hooks/pre-push
 
-.git/hooks/pre-push: $(venv)
-	$(venv)/bin/pre-commit install --install-hooks -t pre-push
+.git/hooks/pre-push:
+	uvx pre-commit install --install-hooks -t pre-push
+## run pre-commit git hooks on all files
+hooks:
+	uvx pre-commit run --color=always --all-files --hook-stage push

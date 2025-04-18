@@ -5,6 +5,7 @@
 - make
 - node (required for pyright)
 - python >= 3.11
+- uv >= 0.5.0
 
 ## Getting started
 

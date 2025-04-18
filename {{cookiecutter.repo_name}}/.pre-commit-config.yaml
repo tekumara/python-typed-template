@@ -10,13 +10,13 @@ repos:
     hooks:
       - id: ruff
         name: ruff
-        entry: .venv/bin/ruff check --force-exclude
+        entry: uv run ruff check --force-exclude
         language: system
         types: [python]
         require_serial: true
       - id: ruff-format
         name: ruff-format
-        entry: .venv/bin/ruff format
+        entry: uv run ruff format
         language: system
         types: [python]
         require_serial: true
@@ -29,7 +29,7 @@ repos:
         types: [python]
       - id: test
         name: test
-        entry: .venv/bin/pytest
+        entry: uv run pytest
         # run on all files
         pass_filenames: false
         language: system

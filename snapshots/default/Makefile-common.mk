@@ -10,18 +10,12 @@ help:
 venv ?= .venv
 # this is a symlink so we set the --check-symlink-times makeflag above
 python := $(venv)/bin/python
-# use uv if present, else fall back to pip
-# set VIRTUAL_ENV to avoid uv installing into a different activated venv
-pip = $(shell command -v uv >/dev/null && echo "VIRTUAL_ENV=$(venv) uv pip" || echo "$(venv)/bin/pip")
 
 $(python): $(if $(value CI),|,) .python-version
-# create venv using system python even when another venv is active
-	PATH=$${PATH#$${VIRTUAL_ENV}/bin:} python3 -m venv --clear $(venv)
-	$(python) --version
-	$(pip) install --upgrade pip~=24.0
+	uv venv
 
 $(venv): $(if $(value CI),|,) pyproject.toml $(python)
-	$(pip) install -e '.[dev]'
+	uv sync
 	touch $(venv)
 
 node_modules: package.json
@@ -49,23 +43,23 @@ pyright: node_modules $(venv)
 
 ## run tests
 test: $(venv)
-	$(venv)/bin/pytest
+	uv run pytest
 
 ## build python distribution
 dist: $(venv)
 # start with a clean slate (see setuptools/#2347)
 	rm -rf build dist *.egg-info
-	$(venv)/bin/python -m build --wheel
+	uv run -m build --wheel
 
 ## publish to pypi
 publish: $(venv)
-	$(venv)/bin/twine upload dist/*
+	uv run twine upload dist/*
 
 ## run pre-commit git hooks on all files
 hooks: node_modules $(venv)
-	$(venv)/bin/pre-commit run --color=always --all-files --hook-stage push
+	uv run pre-commit run --color=always --all-files --hook-stage push
 
 install-hooks: .git/hooks/pre-push
 
 .git/hooks/pre-push: $(venv)
-	$(venv)/bin/pre-commit install --install-hooks -t pre-push
+	uv run pre-commit install --install-hooks -t pre-push

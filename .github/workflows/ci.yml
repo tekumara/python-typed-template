@@ -17,6 +17,8 @@ jobs:
     - name: Set up Python
       id: setup-python
       uses: actions/setup-python@v5
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
     - name: Test
       run: make -B test
     - name: Update snapshots
