@@ -15,7 +15,7 @@ pre-commit is used for linting, formatting, type checking and testing using the 
 
 Tools are configured as a `git push` hook instead of `git commit` to minimise interruptions. They can also be run on-demand via the Makefile. The Makefile uses pre-commit, instead of directly running the tools, because pre-commit will nicely collapse output on success and continue running subsequent tools when a previous one fails.
 
-The version of pre-commit is major-version constrained to avoid breaking changes (see this [example](https://github.com/tekumara/fakesnow/pull/147/files)). The version is specified as a `dev` dependency, rather than in the makefile, so that dependabot can bump it. This has the slight disadvantage of polluting the dependency tree, which must now satisfy pre-commits dependencies.
+The version of pre-commit is major-version constrained to avoid breaking changes (see this [example](https://github.com/tekumara/fakesnow/pull/147/files)). The version is specified as a `dev` dependency, rather than in the makefile, so that dependabot can bump it. This has the slight disadvantage of polluting the dependency tree, which must now satisfy pre-commit's dependencies.
 
 ## Project structure
 
