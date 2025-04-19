@@ -2,5 +2,6 @@
   "repo_name": "repo-name",
   "package_name": "{{ cookiecutter.repo_name|replace('-', '') }}",
   "project_name": "{{ cookiecutter.repo_name }}",
-  "description": "one line description of your project"
+  "description": "one line description of your project",
+  "_copy_without_render": [".github"]
 }

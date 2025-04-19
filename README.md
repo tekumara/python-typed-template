@@ -9,7 +9,8 @@ A minimal, generic, and opinionated template for **typed ✨** python projects t
 - [ruff](https://github.com/charliermarsh/ruff) for linting
 - [pyright](https://github.com/microsoft/pyright) for type checking
 - [pytest](https://docs.pytest.org/) for testing
-- [pre-commit](https://pre-commit.com/) for running the above
+- [pre-commit](https://pre-commit.com/) for running the above as hooks
+- a [GHA ci workflow]({{cookiecutter.repo_name}}/.github/workflows/ci.yml) that runs hooks every commit
 
 Type hints are enforced. Uses a [flat layout](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/), ie: packages are defined at the top level. Naming conventions are as per PEP8, see [Template parameters](#template-parameters) below. And not much else. This is meant to be generic, so anything specific to only a subset of projects probably lives elsewhere.
 
