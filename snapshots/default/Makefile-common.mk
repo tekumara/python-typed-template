@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help clean install format check pyright test dist hooks install-hooks .uv
+.PHONY: help .uv .sync clean install check format pyright test dist hooks install-hooks
 
 ## display help message
 help:
