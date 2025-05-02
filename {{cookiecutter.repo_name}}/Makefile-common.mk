@@ -49,7 +49,7 @@ publish:
 
 ## run pre-commit git hooks on all files
 hooks:
-	uv run pre-commit run --color=always --all-files --hook-stage push
+	uv run pre-commit run --color=always --all-files --hook-stage pre-push
 
 install-hooks: .git/hooks/pre-push
 
