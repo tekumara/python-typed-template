@@ -39,4 +39,4 @@ install-hooks: .git/hooks/pre-push
 	uvx pre-commit install --install-hooks -t pre-push
 ## run pre-commit git hooks on all files
 hooks:
-	uvx pre-commit run --color=always --all-files --hook-stage push
+	uvx pre-commit run --color=always --all-files --hook-stage pre-push
