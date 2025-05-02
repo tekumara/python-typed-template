@@ -61,6 +61,7 @@ select = [
     "RUF",  # ruff-specific
     "SIM",  # flake8-simplify
     "S113", # request-without-timeout
+    "A",    # flake8-builtin
     "ASYNC", # flake8-async
 ]
 
