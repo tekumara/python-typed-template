@@ -1,5 +1,5 @@
 default_context:
-    repo_name: "default"
-    package_name: "mypackage"
-    project_name: "my-project"
-    description: "example cookie rendered from the template"
+  repo_name: "default"
+  package_name: "mypackage"
+  project_name: "my-project"
+  description: "example cookie rendered from the template"

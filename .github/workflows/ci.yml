@@ -10,23 +10,23 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        # make sure we have a branch when triggered by pull_request (ie: avoids a detached HEAD)
-        ref: ${{ github.head_ref }}
-    - name: Set up Python
-      id: setup-python
-      uses: actions/setup-python@v5
-    - name: Install uv
-      uses: astral-sh/setup-uv@v5
-    - name: Test
-      run: make -B test
-    - name: Update snapshots
-      run: |
-        git config user.name snapshots
-        git config user.email snapshots@users.noreply.github.com
-        git status
-        git add .
-        if git commit -m "chore: update snapshots"; then
-          git push
-        fi
+      - uses: actions/checkout@v4
+        with:
+          # make sure we have a branch when triggered by pull_request (ie: avoids a detached HEAD)
+          ref: ${{ github.head_ref }}
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Test
+        run: make -B test
+      - name: Update snapshots
+        run: |
+          git config user.name snapshots
+          git config user.email snapshots@users.noreply.github.com
+          git status
+          git add .
+          if git commit -m "chore: update snapshots"; then
+            git push
+          fi

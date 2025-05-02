@@ -14,3 +14,10 @@ repos:
         # run on all files
         pass_filenames: false
         language: system
+  - repo: local
+    hooks:
+      - id: format
+        name: format
+        language: system
+        files: \.(md|yaml|yml|json)$
+        entry: npx prettier --write
