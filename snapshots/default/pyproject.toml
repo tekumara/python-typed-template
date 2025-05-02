@@ -47,21 +47,21 @@ show-fixes = true
 [tool.ruff.lint]
 # rules to enable/ignore
 select = [
-    "F",    # pyflakes
-    "E",    # pycodestyle
-    "W",    # pycodestyle
-    "ANN",  # type annotations
-    "N",    # pep8-naming
-    "B",    # bugbear
-    "I",    # isort
-    "ARG",  # flake8-unused-arguments
-    "SLF",  # flake8-self
-    "UP",   # pyupgrade
-    "PERF", # perflint
-    "RUF",  # ruff-specific
-    "SIM",  # flake8-simplify
-    "S113", # request-without-timeout
-    "A",    # flake8-builtin
+    "F",     # pyflakes
+    "E",     # pycodestyle
+    "W",     # pycodestyle
+    "ANN",   # type annotations
+    "N",     # pep8-naming
+    "B",     # bugbear
+    "I",     # isort
+    "ARG",   # flake8-unused-arguments
+    "SLF",   # flake8-self
+    "UP",    # pyupgrade
+    "PERF",  # perflint
+    "RUF",   # ruff-specific
+    "SIM",   # flake8-simplify
+    "S113",  # request-without-timeout
+    "A",     # flake8-builtin
     "ASYNC", # flake8-async
 ]
 

@@ -5,7 +5,10 @@ repos:
     rev: v1.23.2
     hooks:
       - id: typos
-  # formatters and linters are available in the virtualenv so they can be run from the makefile & vscode
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
   - repo: local
     hooks:
       - id: snapshots
