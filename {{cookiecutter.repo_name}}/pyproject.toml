@@ -39,8 +39,6 @@ reportUnnecessaryTypeIgnoreComment = true
 
 [tool.ruff]
 line-length = 120
-# first-party imports for sorting
-src = ["."]
 fix = true
 show-fixes = true
 
