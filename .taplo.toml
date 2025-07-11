@@ -1,0 +1,3 @@
+[formatting]
+# match default indent size in VS Code of 4 spaces
+indent_string = "    "
