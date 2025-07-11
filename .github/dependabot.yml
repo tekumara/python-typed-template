@@ -6,9 +6,3 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: chore
-  - package-ecosystem: "npm"
-    directory: "{{cookiecutter.repo_name}}/"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      prefix: chore
