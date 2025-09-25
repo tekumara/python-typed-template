@@ -36,7 +36,7 @@ The template will ask for the following:
 To create a project, aka bake a cookie 🍪, using [uv](https://docs.astral.sh/uv/) and cruft:
 
 ```
-uvx cruft git@github.com:tekumara/python-typed-template.git
+uvx cruft create git@github.com:tekumara/python-typed-template.git
 # replace repo-name below with the name you specified during template creation
 cd repo-name
 git init && git commit -m 'root commit' --allow-empty
