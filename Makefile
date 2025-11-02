@@ -30,13 +30,14 @@ outdated: snapshots/default/.venv
 
 ## update pre-commit hooks
 pc-update: snapshots/default/.venv
-	cd snapshots/default && uv run pre-commit autoupdate
+	cd snapshots/default && uvx prek autoupdate
 	cp -p snapshots/default/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
 
 install-hooks: .git/hooks/pre-push
 
 .git/hooks/pre-push:
-	uvx pre-commit install --install-hooks -t pre-push
+	uvx prek install --install-hooks -t pre-push
+
 ## run pre-commit git hooks on all files
 hooks:
-	uvx pre-commit run --color=always --all-files --hook-stage pre-push
+	uvx prek run --color=always --all-files --hook-stage pre-push
