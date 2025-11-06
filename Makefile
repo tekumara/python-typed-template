@@ -30,6 +30,7 @@ outdated: snapshots/default/.venv
 
 ## update pre-commit hooks
 pc-update: snapshots/default/.venv
+	uvx prek autoupdate
 	cd snapshots/default && uvx prek autoupdate
 	cp -p snapshots/default/.pre-commit-config.yaml {{cookiecutter.repo_name}}/
 
