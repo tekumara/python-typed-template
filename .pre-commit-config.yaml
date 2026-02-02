@@ -2,7 +2,7 @@
 default_stages: [pre-push]
 repos:
   - repo: https://github.com/crate-ci/typos
-    rev: v1.41.0
+    rev: v1.42.3
     hooks:
       - id: typos
   - repo: https://github.com/ComPWA/taplo-pre-commit
