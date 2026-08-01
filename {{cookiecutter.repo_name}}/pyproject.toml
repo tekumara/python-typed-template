@@ -13,7 +13,7 @@ dev = [
     "pyright==1.1.411",
     "pytest~=9.0",
     "ruff~=0.15.4",
-    "twine~=6.1",
+    "twine>=6.1,<8.0",
 ]
 
 [build-system]
