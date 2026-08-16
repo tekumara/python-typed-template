@@ -1,0 +1,69 @@
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+
+# output:
+#   # - meta           # Print lefthook version
+#   - summary        # Print summary block (successful and failed steps)
+#   - empty_summary  # Print summary heading when there are no steps to run
+#   # - success        # Print successful steps
+#   - failure        # Print failed steps printing
+#   # - execution      # Print any execution logs
+#   # - execution_out  # Print execution output
+#   # - execution_info # Print `EXECUTE > ...` logging
+#   - skips          # Print "skip" (i.e. no files matched)
+
+pre-push:
+  #   parallel: true
+  jobs:
+    # - name: typos
+    #   run: typos
+
+    - name: echo
+      #glob: "*.md"
+      run: ./echo.sh {all_files}
+
+
+    - name: ruff
+      run: uv run ruff check --force-exclude {push_files}
+      tags:
+        - check
+
+    - name: ruff-format
+      glob: "*.py"
+      run: uv run ruff format {push_files}
+
+      tags:
+        - check
+
+    - name: pyright
+      run: uv run pyright
+      tags:
+        - check
+
+    - name: test
+      run: uv run pytest
+#
+# pre-commit:
+#   parallel: true
+#   jobs:
+#     - run: yarn eslint {staged_files}
+#       glob: "*.{js,ts,jsx,tsx}"
+#
+#     - name: rubocop
+#       glob: "*.rb"
+#       exclude:
+#         - config/application.rb
+#         - config/routes.rb
+#       run: bundle exec rubocop --force-exclusion {all_files}
+#
+#     - name: govet
+#       files: git ls-files -m
+#       glob: "*.go"
+#       run: go vet {files}
+#
+#     - script: "hello.js"
+#       runner: node
+#
+#     - script: "hello.go"
+#       runner: go run

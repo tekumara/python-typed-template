@@ -12,7 +12,7 @@ install: $(if $(value CI),,install-hooks)
 
 ## run hooks on default snapshot
 test: snapshots
-	cd snapshots/default && git init && git add . && make hooks
+	cd snapshots/default && git init && make hooks
 
 ## make the snapshots
 snapshots: $(shell find {{cookiecutter.repo_name}}) snapshots/*.yaml

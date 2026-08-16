@@ -1,0 +1,47 @@
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+
+output:
+  # - meta           # Print lefthook version
+  - summary # Print summary block (successful and failed steps)
+  - empty_summary # Print summary heading when there are no steps to run
+  # - success        # Print successful steps
+  - failure # Print failed steps printing
+  # - execution      # Print any execution logs
+  # - execution_out  # Print execution output
+  # - execution_info # Print `EXECUTE > ...` logging
+  - skips # Print "skip" (i.e. no files matched)
+
+# pre-commit:
+#   #   parallel: true
+#   jobs:
+#     # - name: typos
+#     #   run: typos
+
+#     - name: echo
+#       glob: "*.env"
+#       run: ./echo.sh {staged_files}
+
+pre-push:
+  jobs:
+    # - name: typos
+    #   run: typos
+
+    - name: ruff
+      glob: "*.py"
+      run: uv run ruff check --force-exclude {push_files}
+
+    - name: ruff-format
+      glob: "*.py"
+      run: uv run ruff format {push_files}
+
+    - name: pyright and test
+      group:
+        parallel: true
+        jobs:
+          - name: pyright
+            run: uv run pyright
+
+          - name: test
+            run: uv run pytest
